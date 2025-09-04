@@ -72,7 +72,7 @@ trainjob.py submit \
 ### 4) Verify the output file 
 When running the job
 ```bash
-ktrainjob.py list
+trainjob.py list
 trainjob.py logs ${USER_NAME}-smoke-01
 ```
 After the job finishes, check your experiment directory:
