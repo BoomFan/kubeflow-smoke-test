@@ -37,9 +37,10 @@ scp -P 2222 -i ~/.ssh/id_rsa -r /Users/fabu/FanBu/kubeflow-smoke-test jovyan@loc
 ### 1) Choose your experiment name (follow your team’s naming convention)
 
 ```bash
+cd ~/fabu/kubeflow-smoke-test
 export USER_NAME=fb
 export EXP_NAME=smoke_y25w36_fb01
-export EXP_DIR=/Users/fabu/FanBu/Output/$USER_NAME/sft/$EXP_NAME
+export EXP_DIR=~/fabu/FanBu/Output/$USER_NAME/sft/$EXP_NAME
 ```
 
 ### 2) Create the experiment directory and copy the project files
