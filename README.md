@@ -12,7 +12,7 @@ This project helps verify that:
 - Output files written by your script appear in your experiment directory on the head node.
 
 ## Files
-- `hello.py` — a tiny Python program that prints a few log lines and writes `hello.txt`
+- `app/hello.py` — a tiny Python program that prints a few log lines and writes `hello.txt`
 
 - `run_smoke.sh` — a launcher script; you will pass this to `trainjob.py` --cmd
 
@@ -40,10 +40,15 @@ scp -P 2222 -i ~/.ssh/id_rsa -r /Users/fabu/FanBu/kubeflow-smoke-test jovyan@loc
 export USER_NAME=fb
 export EXP_NAME=smoke_y25w36_fb01
 export EXP_DIR=/Users/fabu/FanBu/Output/$USER_NAME/sft/$EXP_NAME
-mkdir -p "$EXP_DIR"
 ```
 
-### 2) Run the Job
+### 2) Create the experiment directory and copy the project files
+```bash
+mkdir -p "$EXP_DIR"
+rsync -av --exclude="$EXP_DIR" ./ "$EXP_DIR/"
+```
+
+### 3) Run the Job
 ```bash
 cd "$EXP_DIR"
 chmod +x run_smoke.sh
@@ -63,7 +68,7 @@ trainjob.py submit \
 
 - `--container-image` should be a Python-capable image available in your cluster.
 
-### 3) Verify the output file 
+### 4) Verify the output file 
 When running the job
 ```bash
 ktrainjob.py list

@@ -7,5 +7,5 @@ cd "$(dirname "$0")"
 export OUT_DIR="$(pwd)"
 
 echo "[run] starting in $PWD"
-python3 hello.py
+python3 app/hello.py
 echo "[run] done"
